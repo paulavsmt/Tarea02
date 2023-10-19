@@ -101,7 +101,7 @@ class Expendedor{
                     return null;
                 }
             }
-        } catch (Exception s){
+        } catch (PagoIncorrectoException s){
             return null;
         }
     }

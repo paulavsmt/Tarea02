@@ -18,7 +18,7 @@ public class MainEjecucion {
         Expendedor exp = new Expendedor(3,500);
         Moneda m = null;
         Comprador c=null;
-        m = new Moneda500();
+        m = null;
         c = new Comprador(m,Expendedor.SPRITE,exp);
         System.out.println(c.queBebiste()+", "+c.cuantoVuelto());
         m = new Moneda500();
