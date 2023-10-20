@@ -3,7 +3,7 @@ class Comprador{
     private int vuelto;
 
     public Comprador(Moneda m, int queProducto, Expendedor exp)
-            throws NoHayProductoException, PagoIncorrectoException,PagoInsuficienteException {
+    throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException {
         Producto compra = exp.comprarProducto(m,queProducto);
         if (m!=null&& (queProducto==1||queProducto==2||queProducto==3||queProducto==4||queProducto==5) && compra!=null) {
 
@@ -25,6 +25,10 @@ class Comprador{
             sonido =null;
             vuelto = 0;
         }
+    }
+
+    public void setVuelto(int vuelto){
+        this.vuelto=vuelto;
     }
 
     public int cuantoVuelto(){

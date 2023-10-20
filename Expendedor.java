@@ -42,9 +42,10 @@ class Expendedor{
             super8.add(new Super8(4*i));
             snikers.add(new Snikers(5*i));
         }
+
     }
     public Producto comprarProducto(Moneda m, int prod)
-            throws NoHayProductoException,PagoIncorrectoException,PagoInsuficienteException {
+            throws NoHayProductoException,PagoIncorrectoException {
         //los trow van aca!!!
         if (m!=null) {
             switch (prod) {
