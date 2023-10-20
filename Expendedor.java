@@ -12,11 +12,15 @@ class Expendedor{
     public static final int SUPER8=4;
     public static final int SNIKERS=5;
 
+    enum producto{
+        COCA, SPRITE, FANTA, SUPER8, SNIKERS
+    }
+
     private int presio;
     private int numbeb;
-    public Expendedor(int numBebidas, int precioBebidas){
-        presio = precioBebidas;
-        numbeb = numBebidas;
+    public Expendedor(int numProductos, int precioProducto){
+        presio = precioProducto;
+        numbeb = numProductos;
 
         for (int i =0;i<numbeb;i=i+1){
             coca.add(new CocaCola(1*i));
@@ -28,7 +32,6 @@ class Expendedor{
     }
     public Producto comprarBebida(Moneda m, int cual){
         try {
-
             switch (cual) {
                 case COCA: {
                     if (m.getValor() >= presio && coca.chequear()!=0) {
@@ -96,22 +99,12 @@ class Expendedor{
                     }
                 }
                 default: {
+                    monVu.add(m);
 
-                    if (m!=null){
-                        monVu.add(m);
-                        throw new PagoInsuficienteException("falta plata");
-                    } else {
-
-                        throw new PagoIncorrectoException("mal pagao");
-                        
-                    }
+                    return  null;
                 }
             }
-        } catch (PagoIncorrectoException s){
-            System.out.println("Error: " + s.getMessage());
-            return null;
-        } catch (PagoInsuficienteException a){
-            System.out.println( "err " + a.getMessage());
+        } catch (Exception s){
             return null;
         }
     }

@@ -2,9 +2,9 @@ class Comprador{
     private String sonido;
     private int vuelto;
 
-    public Comprador(Moneda m, int cualBebida, Expendedor exp){
-        Producto compra = exp.comprarBebida(m,cualBebida);
-        if (m!=null&& (cualBebida==1||cualBebida==2||cualBebida==3||cualBebida==4||cualBebida==5) && compra!=null) {
+    public Comprador(Moneda m, int cualProducto, Expendedor exp){
+        Producto compra = exp.comprarBebida(m,cualProducto);
+        if (m!=null&& (cualProducto==1||cualProducto==2||cualProducto==3||cualProducto==4||cualProducto==5) && compra!=null) {
 
             sonido = compra.bebercomer();
             while (true) {

@@ -16,7 +16,7 @@ public class MainEjecucion {
 //        System.out.println(c.queBebiste()+", "+c.cuantoVuelto());
 
         // caso, espendedor valido y..
-        Expendedor exp = new Expendedor(2,1000);
+        Expendedor exp = new Expendedor(2,100);
         Moneda m = null;
         Comprador c=null;
 
@@ -25,13 +25,20 @@ public class MainEjecucion {
         c = new Comprador(m,Expendedor.SPRITE,exp);
         System.out.println(c.queBebiste()+", "+c.cuantoVuelto());
 
-
         m = new Moneda500();
         c = new Comprador(m,Expendedor.SPRITE,exp);
         System.out.println(c.queBebiste()+", "+c.cuantoVuelto());
 
-        m = new Moneda500();
+        m = new Moneda1000();
         c = new Comprador(m,Expendedor.SPRITE,exp);
+        System.out.println(c.queBebiste()+", "+c.cuantoVuelto());
+
+        m = new Moneda1000();
+        c = new Comprador(m,Expendedor.SPRITE,exp);
+        System.out.println(c.queBebiste()+", "+c.cuantoVuelto());
+
+        m = new Moneda1000();
+        c = new Comprador(m,Expendedor.SUPER8,exp);
         System.out.println(c.queBebiste()+", "+c.cuantoVuelto());
     }
 }
