@@ -112,9 +112,13 @@ class Expendedor{
                     }
                 }
                 default: {
+<<<<<<< Updated upstream
 
                     monVu.add(m);
 
+=======
+                    monVu.add(new Moneda100());
+>>>>>>> Stashed changes
                     return null;
                 }
             }
