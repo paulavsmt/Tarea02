@@ -1,22 +1,22 @@
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-
-class PagoIncorrectoExceptionTest {
+//
+//class PagoIncorrectoExceptionTest {
     // caso, espendedor valido y..
     //moneda nula, debe devolver la excepcion PagoIncorrectoException
-   @Test
-   void pr() {
-
-        Expendedor exp = new Expendedor(1);
-        Moneda m = null;
-        Comprador c=null;
-        m = null;
-        c = new Comprador(m, 1, exp);
-        exp.comprarProducto(,2)
-        System.out.println(c.queBebiste() + ", " + c.cuantoVuelto());
-    }
-}
+//   @Test
+//   void pr() {
+//
+//        Expendedor exp = new Expendedor(1);
+//        Moneda m = null;
+//        Comprador c=null;
+//        m = null;
+//        c = new Comprador(m, 1, exp);
+//        exp.comprarProducto(,2)
+//        System.out.println(c.queBebiste() + ", " + c.cuantoVuelto());
+//    }
+//}
 
 // o sea, tengo esto aca por que habia que definir las excepciones con su mensaje, no [ara los test
 // no se si se entiende(?)

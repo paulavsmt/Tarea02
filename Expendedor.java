@@ -10,7 +10,7 @@ class Expendedor{
         SPRITE(2,2000),
         FANTA(3,600),
         SUPER8(4,700),
-        SNIKERS(5,200);
+        SNIKERS(5,2000);
 
         private final int presio;
         private final int id;
@@ -43,87 +43,96 @@ class Expendedor{
             snikers.add(new Snikers(5*i));
         }
     }
-    public Producto comprarProducto(Moneda m, int prod){
-        try {
+    public Producto comprarProducto(Moneda m, int prod)
+            throws NoHayProductoException,PagoIncorrectoException,PagoInsuficienteException {
+        //los trow van aca!!!
+        if (m!=null) {
             switch (prod) {
                 case 1: {
-                    if (m.getValor() >= product.COCA.getPresio() && coca.chequear()!=0) {
+                    if (m.getValor() >= product.COCA.getPresio() && coca.chequear() != 0) {
                         for (int i = 1; i <= (m.getValor() - product.COCA.getPresio()) / 100; i = i + 1) {
                             monVu.add(new Moneda100());
                         }
                         return coca.get();
-                    } else {
-                        for (int i = 100; i <= m.getValor(); i = i + 100) {
-                            monVu.add(new Moneda100());
-                        }
+                    } else if (coca.chequear()==0) {
+                        monVu.add(m);
+                        throw new NoHayProductoException("NoHayProductoException, No queda producto, o n invalido");
+                    }else {
+                        monVu.add(m);
                         return null;
+
                     }
                 }
                 case 2: {
-                    if (m.getValor() >= product.SPRITE.getPresio() && sprite.chequear()!=0) {
+                    if (m.getValor() >= product.SPRITE.getPresio() && sprite.chequear() != 0) {
                         for (int i = 1; i <= (m.getValor() - product.SPRITE.getPresio()) / 100; i = i + 1) {
                             monVu.add(new Moneda100());
                         }
                         return sprite.get();
+
+                    } else if (sprite.chequear()==0) {
+                        monVu.add(m);
+                        throw new NoHayProductoException("NoHayProductoException, No queda producto, o n invalido");
+
                     } else {
-                        for (int i = 100; i <= m.getValor(); i = i + 100) {
-                            monVu.add(new Moneda100());
-                        }
+                        monVu.add(m);
                         return null;
                     }
                 }
                 case 3: {
-                    if (m.getValor() >= product.FANTA.getPresio() && fanta.chequear()!=0) {
+                    if (m.getValor() >= product.FANTA.getPresio() && fanta.chequear() != 0) {
                         for (int i = 1; i <= (m.getValor() - product.FANTA.getPresio()) / 100; i = i + 1) {
                             monVu.add(new Moneda100());
                         }
                         return fanta.get();
+                    } else if (fanta.chequear()==0) {
+                        throw new NoHayProductoException("NoHayProductoException, No queda producto, o n invalido");
                     } else {
-                        for (int i = 100; i <= m.getValor(); i = i + 100) {
-                            monVu.add(new Moneda100());
-                        }
+                        monVu.add(m);
                         return null;
                     }
                 }
                 case 4: {
-                    if (m.getValor() >= product.SUPER8.getPresio() && super8.chequear()!=0) {
+                    if (m.getValor() >= product.SUPER8.getPresio() && super8.chequear() != 0) {
                         for (int i = 1; i <= (m.getValor() - product.SUPER8.getPresio()) / 100; i = i + 1) {
                             monVu.add(new Moneda100());
                         }
                         return super8.get();
-                    } else {
-                        for (int i = 100; i <= m.getValor(); i = i + 100) {
-                            monVu.add(new Moneda100());
-                        }
+                    } else if (super8.chequear()==0) {
+                        monVu.add(m);
+                        throw new NoHayProductoException("NoHayProductoException, No queda producto, o n invalido");
+
+                    }else {
+                        monVu.add(m);
                         return null;
                     }
                 }
                 case 5: {
-                    if (m.getValor() >= product.SNIKERS.getPresio() && snikers.chequear()!=0) {
+                    if (m.getValor() >= product.SNIKERS.getPresio() && snikers.chequear() != 0) {
                         for (int i = 1; i <= (m.getValor() - product.SNIKERS.getPresio()) / 100; i = i + 1) {
                             monVu.add(new Moneda100());
                         }
                         return snikers.get();
-                    } else {
-                        for (int i = 100; i <= m.getValor(); i = i + 100) {
-                            monVu.add(new Moneda100());
-                        }
+                    } else if (snikers.chequear()==0) {
+                        monVu.add(m);
+                        throw new NoHayProductoException("NoHayProductoException, No queda producto, o n invalido");
+
+                    } else { //caso moneda valida, pero mucho precio
+                        monVu.add(m);
                         return null;
                     }
                 }
+                // caso moneda valida, id mala
                 default: {
-<<<<<<< Updated upstream
-
                     monVu.add(m);
-
-=======
-                    monVu.add(new Moneda100());
->>>>>>> Stashed changes
-                    return null;
+                    throw new NoHayProductoException("NoHayProductoException, No queda producto, o n invalido");
+                    //return null;
                 }
+
             }
-        } catch (Exception s){
-            return null;
+
+        } else {
+            throw new PagoIncorrectoException();
         }
     }
 

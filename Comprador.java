@@ -2,7 +2,8 @@ class Comprador{
     private String sonido;
     private int vuelto;
 
-    public Comprador(Moneda m, int queProducto, Expendedor exp){
+    public Comprador(Moneda m, int queProducto, Expendedor exp)
+            throws NoHayProductoException, PagoIncorrectoException,PagoInsuficienteException {
         Producto compra = exp.comprarProducto(m,queProducto);
         if (m!=null&& (queProducto==1||queProducto==2||queProducto==3||queProducto==4||queProducto==5) && compra!=null) {
 
@@ -15,7 +16,6 @@ class Comprador{
                 }
             }
 
-
         } else if (compra==null && m!=null) {
             sonido = null;
             while(true) {
@@ -25,6 +25,8 @@ class Comprador{
                     break;
                 }
             }
+            throw new PagoInsuficienteException("PagoInsuficienteException, El precio del producto es mayor al valor de la moneda");
+
         } else if (m==null) {
             sonido =null;
             vuelto = 0;
