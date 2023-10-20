@@ -112,9 +112,9 @@ class Expendedor{
                     }
                 }
                 default: {
-                    for (int i = 100; i <= m.getValor(); i = i + 100) {
-                        monVu.add(new Moneda100());
-                    }
+
+                    monVu.add(m);
+
                     return null;
                 }
             }
