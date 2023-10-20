@@ -6,11 +6,11 @@ class Expendedor{
     private Deposito<Dulce> snikers= new Deposito<>();
     private Deposito<Moneda> monVu= new Deposito<>();
     public enum product{
-        COCA(1,500),
+        COCA(1,300),
         SPRITE(2,2000),
         FANTA(3,600),
         SUPER8(4,700),
-        SNIKERS(5,2000);
+        SNIKERS(5,500);
 
         private final int presio;
         private final int id;
@@ -86,7 +86,10 @@ class Expendedor{
                         }
                         return fanta.get();
                     } else if (fanta.chequear()==0) {
+
+                        monVu.add(m);
                         throw new NoHayProductoException("NoHayProductoException, No queda producto, o n invalido");
+
                     } else {
                         monVu.add(m);
                         return null;
@@ -113,7 +116,8 @@ class Expendedor{
                             monVu.add(new Moneda100());
                         }
                         return snikers.get();
-                    } else if (snikers.chequear()==0) {
+
+                    } else if (snikers.chequear()==0) { //caso moneda valida, pero cont vacio
                         monVu.add(m);
                         throw new NoHayProductoException("NoHayProductoException, No queda producto, o n invalido");
 
@@ -131,7 +135,7 @@ class Expendedor{
 
             }
 
-        } else {
+        } else { //caso moneda mala
             throw new PagoIncorrectoException();
         }
     }

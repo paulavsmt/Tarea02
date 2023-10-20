@@ -23,7 +23,7 @@ public class MainEjecucion {
 //            c = new Comprador(m, 1, exp);
 //            System.out.println(c.queBebiste() + ", " + c.cuantoVuelto());
 
-            //moneda valida, precio justo (cocacola, 500) [cocacola,0]
+            //moneda valida, sobra plata
 //            m = new Moneda500();
 //            c = new Comprador(m, 1, exp);
 //            System.out.println(c.queBebiste() + ", " + c.cuantoVuelto());
@@ -33,9 +33,9 @@ public class MainEjecucion {
 //            c = new Comprador(m, 5, exp);
 //            System.out.println(c.queBebiste() + ", " + c.cuantoVuelto());
 
-            // moneda valida, sobra plata (fanta, 600) [fanta, 400]
-            m = new Moneda1000();
-            c = new Comprador(m, 3, exp);
+            // moneda valida, precio justo (snikers, 500) [snikers, 0]
+            m = new Moneda500();
+            c = new Comprador(m, 5, exp);
             System.out.println(c.queBebiste() + ", " + c.cuantoVuelto());
 
             // moneda valida, producto no existente [NoHayProductoException, null, 1000]
@@ -43,13 +43,14 @@ public class MainEjecucion {
 //            c = new Comprador(m, 7, exp);
 //            System.out.println(c.queBebiste() + ", " + c.cuantoVuelto());
 
-            // moneda valida, sobra plata, pero no queda producto (fanta, 600) [null, 1000]
+            // moneda valida, sobra plata, pero no queda producto (snikers, 500) [NoHayProductoException',null, 500]
             m = new Moneda1000();
-            c = new Comprador(m, 3, exp);
+            c = new Comprador(m, 5, exp);
             System.out.println(c.queBebiste() + ", " + c.cuantoVuelto());
 
         } catch (NoHayProductoException q){
             System.out.println("Error: "+q.getMessage());
+            System.out.println(';');
 
         } catch (PagoIncorrectoException w){
             System.out.println("Error: "+w.getMessage());

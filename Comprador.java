@@ -18,13 +18,7 @@ class Comprador{
 
         } else if (compra==null && m!=null) {
             sonido = null;
-            while(true) {
-                try {
-                    vuelto = vuelto + exp.getVuelto().getValor();
-                } catch (Exception a) {
-                    break;
-                }
-            }
+            vuelto = m.getValor();
             throw new PagoInsuficienteException("PagoInsuficienteException, El precio del producto es mayor al valor de la moneda");
 
         } else if (m==null) {
@@ -34,6 +28,7 @@ class Comprador{
     }
 
     public int cuantoVuelto(){
+        //System.out.println(vuelto);
         return vuelto;
     }
 
