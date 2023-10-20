@@ -6,7 +6,11 @@ class Expendedor{
     private Deposito<Dulce> snikers= new Deposito<>();
     private Deposito<Moneda> monVu= new Deposito<>();
     public enum product{
-        COCA(1,500),SPRITE(2,2000),FANTA(3,600),SUPER8(4,700),SNIKERS(5,200);
+        COCA(1,500),
+        SPRITE(2,2000),
+        FANTA(3,600),
+        SUPER8(4,700),
+        SNIKERS(5,200);
 
         private final int presio;
         private final int id;
@@ -44,12 +48,12 @@ class Expendedor{
             snikers.add(new Snikers(5*i));
         }
     }
-    public Producto comprarBebida(Moneda m, int cual){
+    public Producto comprarBebida(Moneda m, int prod){
         try {
-            switch (cual) {
-                case product.COCA.getId(): {
+            switch (prod) {
+                case 1: {
                     if (m.getValor() >= product.COCA.getPresio() && coca.chequear()!=0) {
-                        for (int i = 1; i <= (m.getValor() - presio) / 100; i = i + 1) {
+                        for (int i = 1; i <= (m.getValor() - product.COCA.getPresio()) / 100; i = i + 1) {
                             monVu.add(new Moneda100());
                         }
                         return coca.get();
@@ -60,9 +64,9 @@ class Expendedor{
                         return null;
                     }
                 }
-                case SPRITE: {
-                    if (m.getValor() >= presio && sprite.chequear()!=0) {
-                        for (int i = 1; i <= (m.getValor() - presio) / 100; i = i + 1) {
+                case 2: {
+                    if (m.getValor() >= product.SPRITE.getPresio() && sprite.chequear()!=0) {
+                        for (int i = 1; i <= (m.getValor() - product.SPRITE.getPresio()) / 100; i = i + 1) {
                             monVu.add(new Moneda100());
                         }
                         return sprite.get();
@@ -73,9 +77,9 @@ class Expendedor{
                         return null;
                     }
                 }
-                case FANTA: {
-                    if (m.getValor() >= presio && fanta.chequear()!=0) {
-                        for (int i = 1; i <= (m.getValor() - presio) / 100; i = i + 1) {
+                case 3: {
+                    if (m.getValor() >= product.FANTA.getPresio() && fanta.chequear()!=0) {
+                        for (int i = 1; i <= (m.getValor() - product.FANTA.getPresio()) / 100; i = i + 1) {
                             monVu.add(new Moneda100());
                         }
                         return fanta.get();
@@ -86,9 +90,9 @@ class Expendedor{
                         return null;
                     }
                 }
-                case SUPER8: {
-                    if (m.getValor() >= presio && super8.chequear()!=0) {
-                        for (int i = 1; i <= (m.getValor() - presio) / 100; i = i + 1) {
+                case 4: {
+                    if (m.getValor() >= product.SUPER8.getPresio() && super8.chequear()!=0) {
+                        for (int i = 1; i <= (m.getValor() - product.SUPER8.getPresio()) / 100; i = i + 1) {
                             monVu.add(new Moneda100());
                         }
                         return super8.get();
@@ -99,9 +103,9 @@ class Expendedor{
                         return null;
                     }
                 }
-                case SNIKERS: {
-                    if (m.getValor() >= presio && snikers.chequear()!=0) {
-                        for (int i = 1; i <= (m.getValor() - presio) / 100; i = i + 1) {
+                case 5: {
+                    if (m.getValor() >= product.SNIKERS.getPresio() && snikers.chequear()!=0) {
+                        for (int i = 1; i <= (m.getValor() - product.SNIKERS.getPresio()) / 100; i = i + 1) {
                             monVu.add(new Moneda100());
                         }
                         return snikers.get();
