@@ -28,16 +28,11 @@ class Expendedor{
             return id;
         }
     }
-    //public static final int  COCA=1;
-    //public static final int  SPRITE=2;
-    //public static final int FANTA=3;
-    //public static final int SUPER8=4;
-    //public static final int SNIKERS=5;
 
     //private int presio;
     private int numbeb;
-    public Expendedor(int numBebidas, int precioBebidas){
-        //presio = precioBebidas;
+    public Expendedor(int numBebidas){
+
         numbeb = numBebidas;
 
         for (int i =0;i<numbeb;i=i+1){
