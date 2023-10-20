@@ -43,7 +43,7 @@ class Expendedor{
             snikers.add(new Snikers(5*i));
         }
     }
-    public Producto comprarBebida(Moneda m, int prod){
+    public Producto comprarProducto(Moneda m, int prod){
         try {
             switch (prod) {
                 case 1: {
