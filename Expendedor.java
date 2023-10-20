@@ -5,17 +5,35 @@ class Expendedor{
     private Deposito<Dulce> super8= new Deposito<>();
     private Deposito<Dulce> snikers= new Deposito<>();
     private Deposito<Moneda> monVu= new Deposito<>();
+    public enum product{
+        COCA(1,500),SPRITE(2,2000),FANTA(3,600),SUPER8(4,700),SNIKERS(5,200);
 
-    public static final int  COCA=1;
-    public static final int  SPRITE=2;
-    public static final int FANTA=3;
-    public static final int SUPER8=4;
-    public static final int SNIKERS=5;
+        private final int presio;
+        private final int id;
 
-    private int presio;
+        product(int i, int precio) {
+            this.id=i;
+            this.presio=precio;
+        }
+
+        public int getPresio() {
+            return presio;
+        }
+
+        public int getId() {
+            return id;
+        }
+    }
+    //public static final int  COCA=1;
+    //public static final int  SPRITE=2;
+    //public static final int FANTA=3;
+    //public static final int SUPER8=4;
+    //public static final int SNIKERS=5;
+
+    //private int presio;
     private int numbeb;
     public Expendedor(int numBebidas, int precioBebidas){
-        presio = precioBebidas;
+        //presio = precioBebidas;
         numbeb = numBebidas;
 
         for (int i =0;i<numbeb;i=i+1){
@@ -29,8 +47,8 @@ class Expendedor{
     public Producto comprarBebida(Moneda m, int cual){
         try {
             switch (cual) {
-                case COCA: {
-                    if (m.getValor() >= presio && coca.chequear()!=0) {
+                case product.COCA.getId(): {
+                    if (m.getValor() >= product.COCA.getPresio() && coca.chequear()!=0) {
                         for (int i = 1; i <= (m.getValor() - presio) / 100; i = i + 1) {
                             monVu.add(new Moneda100());
                         }
