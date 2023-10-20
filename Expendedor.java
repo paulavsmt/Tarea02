@@ -16,6 +16,8 @@ class Expendedor{
         COCA, SPRITE, FANTA, SUPER8, SNIKERS
     }
 
+
+
     private int presio;
     private int numbeb;
     public Expendedor(int numProductos, int precioProducto){

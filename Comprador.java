@@ -2,6 +2,10 @@ class Comprador{
     private String sonido;
     private int vuelto;
 
+
+    // en int cual producto debe ir un numero del 1 a 5 (sacado del enum(el cual CREO
+    // debe estar en el expendedor))
+
     public Comprador(Moneda m, int cualProducto, Expendedor exp){
         Producto compra = exp.comprarBebida(m,cualProducto);
         if (m!=null&& (cualProducto==1||cualProducto==2||cualProducto==3||cualProducto==4||cualProducto==5) && compra!=null) {
