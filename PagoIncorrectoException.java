@@ -8,3 +8,5 @@ public class PagoIncorrectoException extends Exception {
         super(mensaje);
     }
 }
+
+// excepcion si la moneda es null

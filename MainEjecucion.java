@@ -15,15 +15,21 @@ public class MainEjecucion {
 //        c = new Comprador(m,Expendedor.SPRITE,exp);
 //        System.out.println(c.queBebiste()+", "+c.cuantoVuelto());
 
-        Expendedor exp = new Expendedor(3,500);
+        // caso, espendedor valido y..
+        Expendedor exp = new Expendedor(2,1000);
         Moneda m = null;
         Comprador c=null;
+
+         //moneda nula, debe devolver la excepcion PagoIncorrectoException
         m = null;
         c = new Comprador(m,Expendedor.SPRITE,exp);
         System.out.println(c.queBebiste()+", "+c.cuantoVuelto());
+
+
         m = new Moneda500();
         c = new Comprador(m,Expendedor.SPRITE,exp);
         System.out.println(c.queBebiste()+", "+c.cuantoVuelto());
+
         m = new Moneda500();
         c = new Comprador(m,Expendedor.SPRITE,exp);
         System.out.println(c.queBebiste()+", "+c.cuantoVuelto());

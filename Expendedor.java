@@ -28,6 +28,7 @@ class Expendedor{
     }
     public Producto comprarBebida(Moneda m, int cual){
         try {
+
             switch (cual) {
                 case COCA: {
                     if (m.getValor() >= presio && coca.chequear()!=0) {
@@ -95,13 +96,22 @@ class Expendedor{
                     }
                 }
                 default: {
-                    for (int i = 100; i <= m.getValor(); i = i + 100) {
-                        monVu.add(new Moneda100());
+
+                    if (m!=null){
+                        monVu.add(m);
+                        throw new PagoInsuficienteException("falta plata");
+                    } else {
+
+                        throw new PagoIncorrectoException("mal pagao");
+                        
                     }
-                    return null;
                 }
             }
         } catch (PagoIncorrectoException s){
+            System.out.println("Error: " + s.getMessage());
+            return null;
+        } catch (PagoInsuficienteException a){
+            System.out.println( "err " + a.getMessage());
             return null;
         }
     }
