@@ -12,7 +12,7 @@ public class MainEjecucion {
         // try y catch van aca!!!!
 
         // caso, espendedor valido y..
-        Expendedor exp = new Expendedor(1);
+        Expendedor exp = new Expendedor(0);
         Moneda m = null;
         Comprador c=null;
 
@@ -30,13 +30,13 @@ public class MainEjecucion {
 
             //moneda valida, poca plata (Sprite,2000) [PagoInsuficienteException, null, 1000]
 //            m = new Moneda1000();
-//            c = new Comprador(m, 5, exp);
+//            c = new Comprador(m, 2, exp);
 //            System.out.println(c.queBebiste() + ", " + c.cuantoVuelto());
 
             // moneda valida, precio justo (snikers, 500) [snikers, 0]
-            m = new Moneda500();
-            c = new Comprador(m, 5, exp);
-            System.out.println(c.queBebiste() + ", " + c.cuantoVuelto());
+//            m = new Moneda500();
+//            c = new Comprador(m, 5, exp);
+//            System.out.println(c.queBebiste() + ", " + c.cuantoVuelto());
 
             // moneda valida, producto no existente [NoHayProductoException, null, 1000]
 //            m = new Moneda1000();
@@ -44,13 +44,12 @@ public class MainEjecucion {
 //            System.out.println(c.queBebiste() + ", " + c.cuantoVuelto());
 
             // moneda valida, sobra plata, pero no queda producto (snikers, 500) [NoHayProductoException',null, 500]
-            m = new Moneda1000();
-            c = new Comprador(m, 5, exp);
-            System.out.println(c.queBebiste() + ", " + c.cuantoVuelto());
+//            m = new Moneda1000();
+//            c = new Comprador(m, 5, exp);
+//            System.out.println(c.queBebiste() + ", " + c.cuantoVuelto());
 
         } catch (NoHayProductoException q){
             System.out.println("Error: "+q.getMessage());
-            System.out.println(';');
 
         } catch (PagoIncorrectoException w){
             System.out.println("Error: "+w.getMessage());
