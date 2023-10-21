@@ -6,7 +6,6 @@ abstract class Producto{
     private final int serie;
 
     /**
-     *
      * @param serie: almacena el numero de serie de el producto
      */
     public Producto(int serie) {
