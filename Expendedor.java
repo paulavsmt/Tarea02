@@ -1,10 +1,23 @@
+
+/**
+ * El expendedor donde se lleva a cabo el proceso de compra.
+ *
+ */
 class Expendedor{
+
+    /**
+     * Lo primero es inializar los depositos, crea uno para cada tipo de producto y uno para las monedas (monVu)
+     */
     private Deposito<Bebida> coca= new Deposito<>();
     private Deposito<Bebida> sprite= new Deposito<>();
     private Deposito<Bebida> fanta= new Deposito<>();
     private Deposito<Dulce> super8= new Deposito<>();
     private Deposito<Dulce> snikers= new Deposito<>();
     private Deposito<Moneda> monVu= new Deposito<>();
+
+    /**
+     * Enumeracion que le da a cada tipo de producto un id "general" para poder seleccionarlo numericamente en el expendedor, y al lado su precio distinto para cada producto)
+     */
     public enum product{
         COCA(1,300),
         SPRITE(2,2000),
@@ -15,11 +28,19 @@ class Expendedor{
         private final int presio;
         private final int id;
 
+        /**
+         * @param i es la id del producto.
+         * @param precio es el precio del producto
+         */
+
         product(int i, int precio) {
             this.id=i;
             this.presio=precio;
         }
 
+        /**
+         * getter de precio.
+         */
         public int getPresio() {
             return presio;
         }
@@ -31,9 +52,17 @@ class Expendedor{
 
     //private int presio;
     private int numbeb;
+
+    /**
+     * @param numBebidas este parametro indica el numero de cada producto con que seran llenados los depositos.
+     */
     public Expendedor(int numBebidas){
 
         numbeb = numBebidas;
+
+        /**
+         * comando for que llena los contenedores con la cantidad de productos pedido.
+         */
 
         for (int i =0;i<numbeb;i=i+1){
             coca.add(new CocaCola(1*i));
@@ -44,9 +73,21 @@ class Expendedor{
         }
 
     }
+
+    /**
+     * @param m moneda con la que se hara el proceso de compra.
+     * @param prod id del producto.
+     * @throws NoHayProductoException
+     * @throws PagoIncorrectoException este error se disparará cuando encuentre una moneda que no es valida.
+     */
+
+
     public Producto comprarProducto(Moneda m, int prod)
             throws NoHayProductoException,PagoIncorrectoException {
         //los trow van aca!!!
+        /**
+         *
+         */
         if (m!=null) {
             switch (prod) {
                 case 1: {

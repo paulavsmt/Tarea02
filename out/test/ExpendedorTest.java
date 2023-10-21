@@ -9,11 +9,11 @@ class ExpendedorTest {
     Moneda m = new Moneda1000();
     Comprador c=null;
     @Test
-    void comprarProducto() {
+    void comprarProducto() throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException {
         Comprador c = new Comprador(m, 1, exp);
         Producto cc = exp.comprarProducto(m, 1);
         System.out.println(c.queBebiste() + ", " + c.cuantoVuelto());
-
+// dio error? en que?
     }
     @Test
     void getVuelto() {
@@ -21,3 +21,6 @@ class ExpendedorTest {
 
     }
 }
+
+
+// crl+/

@@ -9,7 +9,7 @@ public class MainEjecucion {
 
     public static void main(String[] args) {
 
-        // try y catch van aca!!!!
+        // try y catch van aca por pauta
 
         // caso, espendedor valido y..
         Expendedor exp = new Expendedor(1);
@@ -55,7 +55,7 @@ public class MainEjecucion {
             System.out.println("Error: " + w.getMessage());
 
         } catch (PagoInsuficienteException e) {
-            System.out.println("Error: " + e.getMessage() + c.cuantoVuelto());
+            System.out.println("Error: " + e.getMessage());
         }
 
     }

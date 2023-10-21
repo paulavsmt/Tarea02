@@ -1,3 +1,6 @@
+/**
+ *  Clase Producto: es la  clase encargada de crear
+ */
 abstract class Producto{
     private final int serie;
 
