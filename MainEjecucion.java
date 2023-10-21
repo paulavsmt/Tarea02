@@ -15,6 +15,8 @@ public class MainEjecucion {
         Expendedor exp = new Expendedor(1);
         Moneda m = null;
         Comprador c = null;
+
+
         try {
 
 

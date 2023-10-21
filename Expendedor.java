@@ -54,6 +54,7 @@ class Expendedor{
     private int numbeb;
 
     /**
+     * Constructor del Expendedor, solo recibe un parametro
      * @param numBebidas este parametro indica el numero de cada producto con que seran llenados los depositos.
      */
     public Expendedor(int numBebidas){
@@ -75,6 +76,7 @@ class Expendedor{
     }
 
     /**
+     *
      * @param m moneda con la que se hara el proceso de compra.
      * @param prod id del producto.
      * @throws NoHayProductoException
@@ -86,16 +88,33 @@ class Expendedor{
             throws NoHayProductoException,PagoIncorrectoException {
         //los trow van aca!!!
         /**
-         *
+         *En caso que la moneda sea nula lanzara la excepcion PagoIncorrectoException, de no ser asi parará al cuerpo pincipal del expendedor donde se hara el proceso de compra.
          */
         if (m!=null) {
+
+            /**
+             * Este switch se encarga de recibir los numeros de id del producto que se trata de comprar, en caso de tomar un numero que no esta en las opciones, lanzara la excepcion NoHayProductoException.
+             */
             switch (prod) {
                 case 1: {
+
+                    /**
+                     * En caso de tomar un numero valido, pasara a esta estructura if/else donde se comparará que
+                     * el valor de la moneda es mayor o igual al precio del producto y se revisara que el contenedor no este vacio, de cumplirse ambas condiciones ejecutara la compra
+                     * y devolvera el vuelto en monedas de 100.
+                     *
+                     * En caso que una de las condiciones no se cumpla, lo mas probable es que el contenedor este vacio, de ser asi devolvera la moneda
+                     * y lanzara la excepcion NoHayProductoException.
+                     *
+                     * En ultima instancia solo queda la situacion que el dinero no alcance para la venta, por lo que anulara la compra y devolvera el dinero.
+                     */
+
                     if (m.getValor() >= product.COCA.getPresio() && coca.chequear() != 0) {
                         for (int i = 1; i <= (m.getValor() - product.COCA.getPresio()) / 100; i = i + 1) {
                             monVu.add(new Moneda100());
                         }
                         return coca.get();
+
                     } else if (coca.chequear()==0) {
                         monVu.add(m);
                         throw new NoHayProductoException("NoHayProductoException, No queda producto, o n invalido");
@@ -104,6 +123,7 @@ class Expendedor{
                         return null;
 
                     }
+
                 }
                 case 2: {
                     if (m.getValor() >= product.SPRITE.getPresio() && sprite.chequear() != 0) {
